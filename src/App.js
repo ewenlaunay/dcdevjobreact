@@ -4,6 +4,7 @@ import AddJob from "./components/AddJob";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {NavLink, Route} from "react-router-dom";
 import PageJobs from "./components/PageJobs";
+import Accueil from "./components/Accueil";
 
 
  function App(){
@@ -20,6 +21,7 @@ import PageJobs from "./components/PageJobs";
                 </ul>
             </nav>
             <div class="page-container">
+                <Route path="/" component={Accueil}/>
                 <Route path="/offresdemplois" component={PageJobs}/>
                 <Route path="/ajouterunemploi" component={AddJob}/>
             </div>

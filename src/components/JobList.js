@@ -30,9 +30,10 @@ class JobList extends Component {
 
 
         const jobsLi = this.state.jobs.map(job =>
-            <div class="col-6">
+            <div class="col-6 fiche btn btn-light">
                 <li key={job.id}>
                     <b><JobItem job={job}/></b>
+                    <h6>Offre ajouté le ...</h6>
                 </li>
                 <br/>
             </div>);
@@ -41,6 +42,7 @@ class JobList extends Component {
             <div className="li-container">
                 <ul>
                     {jobsLi}
+                <br/>
                 </ul>
             </div>
         );
