@@ -17,10 +17,6 @@ class AddJob extends Component {
     }
 
 
-
-
-
-
     handleChange = e => {
         if (e.target.id === "competences") {
             this.state.competences = [].filter.call(e.target.options, o => o.selected).map(o => o.value)
@@ -67,7 +63,12 @@ class AddJob extends Component {
                     <br/>
                     <div className="form-group">
                         <label htmlFor="exampleFormControlSelect2">Compétences:</label>
-
+                        <select>
+                            <option value="grapefruit">Pamplemousse</option>
+                            <option value="lime">Citron vert</option>
+                            <option selected value="coconut">Noix de coco</option>
+                            <option value="mango">Mangue</option>
+                        </select>
                     </div>
                     <br/>
                     <label htmlFor="">URL:
