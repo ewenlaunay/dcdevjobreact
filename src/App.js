@@ -20,7 +20,7 @@ import Accueil from "./components/Accueil";
                     <li className="col-3 list-group-item list-group-item-primary"><NavLink to="/ajouterunemploi">Ajouter un emploi</NavLink></li>
                 </ul>
             </nav>
-            <div class="page-container">
+            <div className="page-container">
                 <Route path="/" component={Accueil}/>
                 <Route path="/offresdemplois" component={PageJobs}/>
                 <Route path="/ajouterunemploi" component={AddJob}/>
