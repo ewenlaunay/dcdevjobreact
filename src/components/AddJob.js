@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import './AddJob.scss';
 
 
+
+
+
 class AddJob extends Component {
 
     constructor(props) {
@@ -15,7 +18,6 @@ class AddJob extends Component {
 
         }
     }
-
 
     handleChange = e => {
         if (e.target.id === "competences") {
@@ -33,58 +35,58 @@ class AddJob extends Component {
         e.preventDefault();
         console.log(this.state.competences);
 
-        let s = [];
-        fetch('https://127.0.0.1:8000/api/jobs', {method:"POST", headers: {'Content-Type':'application/json'},
-            "title": this.state.titre,
-            "company": this.state.entreprise,
-            "skills": this.state.competences,
-            "url": this.state.url,
-            "description": this.state.description,
+        fetch('https://127.0.0.1:8000/api/jobs', {
+            method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify({
+                "title": this.state.titre,
+                "company": this.state.entreprise,
+                "skills": this.state.competences,
+                "url": this.state.url,
+                "description": this.state.description,
+            })
         })
-    };
 
+    };
 
 
     render() {
 
+   // const skills = this.props.skills.map(skill =>
+   //      <option value={"/api/skills/" + skill.id} key={skill.id}>{skill.name}</option>);
         return (
 
 
             <div>
                 <h1>Ajouter un emploi</h1>
-                <form action="" className="form-container">
+                <form  className="form-container" method="POST" onSubmit={this.handleSubmit} action="Accueil.js">
                     <label htmlFor="">Titre:
-                        <input type="text" class="form-control" id="titre" onChange={this.handleChange}/>
+                        <input type="text" className="form-control" id="titre" onChange={this.handleChange}/>
                     </label>
                     <br/>
                     <label htmlFor="">Entreprise:
-                        <input type="text" class="form-control" id="entreprise" onChange={this.handleChange}/>
+                        <input type="text" className="form-control" id="entreprise" onChange={this.handleChange}/>
                     </label>
                     <br/>
-                    <div className="form-group">
                         <label htmlFor="exampleFormControlSelect2">Compétences:</label>
-                        <select>
-                            <option value="grapefruit">Pamplemousse</option>
-                            <option value="lime">Citron vert</option>
-                            <option selected value="coconut">Noix de coco</option>
-                            <option value="mango">Mangue</option>
+                        <select name="" id="">
+                            {/*{skills}*/}
                         </select>
-                    </div>
                     <br/>
                     <label htmlFor="">URL:
-                        <input type="text" class="form-control" id="url" onChange={this.handleChange}/>
+                        <input type="text" className="form-control" id="url" onChange={this.handleChange}/>
                     </label>
                     <br/>
                     <label>Description:
-                        <textarea class="form-control" id="description" onChange={this.handleChange}/>
+                        <textarea className="form-control" id="description" onChange={this.handleChange}/>
                     </label>
                     <br/>
-                    <button type="submit" class="btn btn-primary" onSubmit={this.handleSubmit}>Ajouter</button>
+                    <button type="submit" className="btn btn-primary">Ajouter</button>
                 </form>
 
 
             </div>
+
         );
+
     }
 }
 

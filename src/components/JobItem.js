@@ -14,7 +14,7 @@ class JobItem extends Component {
 
 
         return (
-            <div class="">
+            <div>
                 <p><span><b>{job.title}</b></span></p>
                 <p><span className="badge badge-success">{job.company}</span></p>
                 <ul className="row">{skills}</ul>

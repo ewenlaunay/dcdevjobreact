@@ -9,6 +9,7 @@ class JobList extends Component {
         super(props);
         this.state = {
             jobs: [],
+            skills: [],
             jobSelect: {},
             loading: true
         };
@@ -29,6 +30,7 @@ class JobList extends Component {
             .then(data => this.setState({skills: data['hydra:member'], loading: false}))
     }
 
+
     render() {
 
         if (this.state.jobs.length === 0) {
@@ -37,30 +39,29 @@ class JobList extends Component {
 
 
         const jobsLi = this.state.jobs.map(job =>
-            <div class="fiche">
-                    <JobItem job={job}/>
-                    <div className="d-flex justify-content-center">
-                        <button onClick={() => {
-                            this.afficherJob(job)
-                        }}
-                                className="badge badge-primary">
-                            <img
-                                src="https://cdn4.iconfinder.com/data/icons/gambling-15/48/94-512.png"
-                                alt="" className="img"
-                            />
-                        </button>
-                    </div>
-                    <h6>Offre ajouté {moment("20200210").fromNow()}</h6>
+            <div className="fiche">
+                <JobItem job={job}/>
+                <div className="d-flex justify-content-center">
+                    <button onClick={() => {
+                        this.afficherJob(job)
+                    }}
+                            className="badge badge-primary">
+                        <img
+                            src="https://cdn4.iconfinder.com/data/icons/gambling-15/48/94-512.png"
+                            alt="" className="img"
+                        />
+                    </button>
+                </div>
+                <h6>Offre ajouté {moment("20200210").fromNow()}</h6>
             </div>);
 
 
         return (
-            <div class="joblist row ">
+            <div className="joblist row ">
                 <div className="col-12 col-sm-6 fiche">
-                        {jobsLi}
+                    {jobsLi}
                 </div>
-
-                <div class="col-12 col-sm-6 btn btn-light fiche2">
+                <div className="col-12 col-sm-6 btn btn-light fiche2">
                     <li>
                         <b>{this.state.jobSelect.title}</b>
                     </li>
@@ -71,10 +72,8 @@ class JobList extends Component {
                         {this.state.jobSelect.description}
                     </li>
                     <li>
-                        <a href="https://www.indeed.fr/?from=gnav-homepage">{this.state.jobSelect.url}</a>
+                        <a href={this.state.jobSelect.url}>{this.state.jobSelect.url}</a>
                     </li>
-
-
                 </div>
             </div>
 

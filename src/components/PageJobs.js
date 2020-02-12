@@ -13,7 +13,6 @@ class PageJobs extends Component {
                     </form>
                 <br/>
                 <JobList/>
-
             </div>
         );
     }
